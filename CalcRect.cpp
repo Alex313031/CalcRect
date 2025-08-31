@@ -2,8 +2,7 @@
 #include <windowsx.h>
 #include <commctrl.h>
 
-BOOL OnInitDialog(HWND hwnd, HWND hwndFocus, LPARAM lParam)
-{
+BOOL OnInitDialog(HWND hwnd, HWND hwndFocus, LPARAM lParam) {
     SetDlgItemInt(hwnd, edt1, 0, TRUE);
     SetDlgItemInt(hwnd, edt2, 0, TRUE);
     SetDlgItemInt(hwnd, edt3, 100, TRUE);
@@ -20,8 +19,7 @@ BOOL OnInitDialog(HWND hwnd, HWND hwndFocus, LPARAM lParam)
     return TRUE;
 }
 
-void OnCommand(HWND hwnd, int id, HWND hwndCtl, UINT codeNotify)
-{
+void OnCommand(HWND hwnd, int id, HWND hwndCtl, UINT codeNotify) {
     switch (id)
     {
     case IDOK:
@@ -40,8 +38,7 @@ void OnCommand(HWND hwnd, int id, HWND hwndCtl, UINT codeNotify)
     }
 }
 
-void OnDraw(HWND hwnd, HDC hdc)
-{
+void OnDraw(HWND hwnd, HDC hdc) {
     LOGFONT lf;
     ZeroMemory(&lf, sizeof(lf));
     lf.lfHeight = -20;
@@ -110,8 +107,7 @@ void OnDraw(HWND hwnd, HDC hdc)
     DeleteObject(hFont);
 }
 
-void OnPaint(HWND hwnd)
-{
+void OnPaint(HWND hwnd) {
     PAINTSTRUCT ps;
     if (HDC hdc = BeginPaint(hwnd, &ps))
     {
@@ -120,9 +116,7 @@ void OnPaint(HWND hwnd)
     }
 }
 
-INT_PTR CALLBACK
-DialogProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
-{
+INT_PTR CALLBACK DialogProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
     switch (uMsg)
     {
         HANDLE_MSG(hwnd, WM_INITDIALOG, OnInitDialog);
@@ -132,12 +126,10 @@ DialogProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
     return 0;
 }
 
-INT WINAPI
-WinMain(HINSTANCE   hInstance,
-        HINSTANCE   hPrevInstance,
-        LPSTR       lpCmdLine,
-        INT         nCmdShow)
-{
+INT WINAPI WinMain(HINSTANCE hInstance,
+                   HINSTANCE hPrevInstance,
+                   LPSTR     lpCmdLine,
+                   INT       nCmdShow) {
     UNREFERENCED_PARAMETER(hPrevInstance);
     SetDllDirectory(_T("."));
     InitCommonControls();
