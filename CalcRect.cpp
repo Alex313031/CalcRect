@@ -1,6 +1,4 @@
-#include <windows.h>
-#include <windowsx.h>
-#include <commctrl.h>
+#include "CalcRect.h"
 
 BOOL OnInitDialog(HWND hwnd, HWND hwndFocus, LPARAM lParam) {
     SetDlgItemInt(hwnd, edt1, 0, TRUE);

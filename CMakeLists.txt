@@ -36,7 +36,7 @@ endif()
 ##############################################################################
 
 # CalcRect.exe
-add_executable(CalcRect WIN32 CalcRect.cpp CalcRect_res.rc)
+add_executable(CalcRect WIN32 CalcRect.cpp CalcRect.h CalcRect_res.rc)
 target_link_libraries(CalcRect comctl32)
 
 ##############################################################################
