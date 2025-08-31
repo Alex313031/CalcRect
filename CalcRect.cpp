@@ -1,5 +1,6 @@
 #include <windows.h>
 #include <windowsx.h>
+#include <commctrl.h>
 
 BOOL OnInitDialog(HWND hwnd, HWND hwndFocus, LPARAM lParam)
 {
@@ -137,6 +138,9 @@ WinMain(HINSTANCE   hInstance,
         LPSTR       lpCmdLine,
         INT         nCmdShow)
 {
+    UNREFERENCED_PARAMETER(hPrevInstance);
+    SetDllDirectory(_T("."));
+    InitCommonControls();
     DialogBox(hInstance, MAKEINTRESOURCE(1), NULL, DialogProc);
     return 0;
 }
